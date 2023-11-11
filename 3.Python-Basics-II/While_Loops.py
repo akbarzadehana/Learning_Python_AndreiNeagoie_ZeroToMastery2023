@@ -19,3 +19,16 @@ while True:
     response = input("say something: ")
     if response == "bye":
         break
+
+# break & continue keyword works in a for loop as well.
+i = 0
+while i < len(my_list):
+    i += 1
+    continue
+    print(my_list[i])
+
+print("Done!")
+
+for item in my_list:
+    # thinking about it
+    pass  # Hey, I'm thinking about it. I'm just going to pass it for now

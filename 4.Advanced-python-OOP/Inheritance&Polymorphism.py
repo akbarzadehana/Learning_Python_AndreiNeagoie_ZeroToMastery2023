@@ -1,5 +1,8 @@
 # when we do something like User, it's actually accepting object as the parent.
 class User:
+    def __init__(self, email):
+        self.email = email
+
     def sign_in(self):
         print("logged in")
 
@@ -8,12 +11,14 @@ class User:
 
 
 class Wizard(User):
-    def __init__(self, name, power):
+    def __init__(self, name, power, email):
+        # User.__init__(self, email)
+        super().__init__(email)
         self.name = name
         self.power = power
 
     def attack(self):
-        User.attack(self)
+        # User.attack(self)
         print(f"attacking with power of {self.power}")
 
 
@@ -26,7 +31,7 @@ class Archer(User):
         print(f"attacking with arrows: arrows left- {self.num_arrows}")
 
 
-wizard1 = Wizard("Merlin", 50)
+wizard1 = Wizard("Merlin", 50, "Merlin@gmail.com")
 archer1 = Archer("Robin", 100)
 wizard1.attack()
 
@@ -45,3 +50,5 @@ def player_attack(char):
 
 player_attack(wizard1)
 player_attack(archer1)
+
+print(wizard1.email)
